@@ -31,18 +31,18 @@
             display: none;
         }
         .btn {
-            background-color: #4CAF50;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
             margin: 10px 5px;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
         }
         .btn:hover {
-            background-color: #45a049;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         .btn-pay {
             background-color: #2196F3;
@@ -50,11 +50,11 @@
         .btn-pay:hover {
             background-color: #0b7dda;
         }
-        .btn-claim {
-            background-color: #ff9800;
+        .btn-action {
+            background-color: #f44336;
         }
-        .btn-claim:hover {
-            background-color: #e68a00;
+        .btn-action:hover {
+            background-color: #d32f2f;
         }
         .qq-group {
             font-size: 20px;
@@ -62,12 +62,33 @@
             margin: 20px 0;
             display: none;
         }
+        .action-buttons {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .solution-text {
+            display: none;
+            font-size: 22px;
+            color: #ff0000;
+            font-weight: bold;
+            margin: 25px auto;
+            padding: 20px;
+            background-color: #fff0f0;
+            border-radius: 10px;
+            max-width: 90%;
+            line-height: 1.6;
+            border: 2px solid #ff0000;
+        }
     </style>
 </head>
 <body>
-    <h1>JM最新版8块（安卓iOS都有）</h1>
-    <p>付款截图发给快手主播拿进群密码</p>
+    <h1>JM最新版8块</h1>
+    <p>付款时备注快手号名字</p>
     <p>加QQ群1042353516领取</p>
+    <p>私信快手主播拿进裙密码</p>
+    <p>放心，主播是诚信的，主播看到后会第一时间发密码的</p>
     
     <div class="payment-option">
         <p>微信扫码付款</p>
@@ -81,9 +102,17 @@
         <button class="btn btn-pay" onclick="showAlipayQR()">支付宝支付</button>
     </div>
     
-    <button class="btn btn-claim" onclick="showQQGroup()">领取</button>
+    <div class="action-buttons">
+        <button class="btn btn-action" onclick="showQQGroup()">领取JM</button>
+        <button class="btn btn-action" onclick="showSolution()">解决JM进不去的问题</button>
+    </div>
+    
     <div id="qq-group" class="qq-group">
         QQ群号：1042353516
+    </div>
+
+    <div id="solution-text" class="solution-text">
+        挂梯子解决JM更新问题，我有两种梯子，一种每天免费一小时的9块，一种永久破解版的无限时长15块，私信快手主播拿进梯子的群号
     </div>
 
     <script>
@@ -100,6 +129,12 @@
         function showQQGroup() {
             document.getElementById('qq-group').style.display = 'block';
             alert('请加QQ群：1042353516');
+        }
+
+        function showSolution() {
+            const solutionDiv = document.getElementById('solution-text');
+            solutionDiv.style.display = 'block';
+            solutionDiv.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
