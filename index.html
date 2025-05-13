@@ -1,5 +1,106 @@
- <h1>JM最新版7块<h1><p>付款截图发给管理员拿进群密码</p><p>加QQ群618638217领取</p>
-<p>截图，微信扫下面的赞赏码码付款</p>
-<img src="https://sfile.chatglm.cn/chatglm4/9cf34885-7efc-46fb-9134-c566a81de03b.jpg?image_process=format,webp&time=0"></h1>
- <h1>截图，支付宝扫下面的码付款</h1>
-<img src="https://sfile.chatglm.cn/chatglm4/e0a0bf62-c712-4b47-a20f-9a51df8f16cd.jpg?image_process=format,webp&time=0"></h1>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JM最新版购买</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            margin: 15px 0;
+        }
+        .payment-option {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .payment-img {
+            max-width: 200px;
+            margin: 15px auto;
+            display: none;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .btn-pay {
+            background-color: #2196F3;
+        }
+        .btn-pay:hover {
+            background-color: #0b7dda;
+        }
+        .btn-claim {
+            background-color: #ff9800;
+        }
+        .btn-claim:hover {
+            background-color: #e68a00;
+        }
+        .qq-group {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>JM最新版7块</h1>
+    <p>付款截图发给管理员拿进群密码</p>
+    <p>加群QQ618638217领取</p>
+    
+    <div class="payment-option">
+        <p>微信扫码付款</p>
+        <img id="wechat-qr" src="https://sfile.chatglm.cn/chatglm4/9cf34885-7efc-46fb-9134-c566a81de03b.jpg?image_process=format,webp&time=0" class="payment-img" alt="微信付款码">
+        <button class="btn btn-pay" onclick="showWechatQR()">微信支付</button>
+    </div>
+    
+    <div class="payment-option">
+        <p>支付宝扫码付款</p>
+        <img id="alipay-qr" src="https://sfile.chatglm.cn/chatglm4/e0a0bf62-c712-4b47-a20f-9a51df8f16cd.jpg?image_process=format,webp&time=0" class="payment-img" alt="支付宝付款码">
+        <button class="btn btn-pay" onclick="showAlipayQR()">支付宝支付</button>
+    </div>
+    
+    <button class="btn btn-claim" onclick="showQQGroup()">领取</button>
+    <div id="qq-group" class="qq-group">
+        QQ群号：618638217
+    </div>
+
+    <script>
+        function showWechatQR() {
+            document.getElementById('wechat-qr').style.display = 'block';
+            document.getElementById('alipay-qr').style.display = 'none';
+        }
+        
+        function showAlipayQR() {
+            document.getElementById('alipay-qr').style.display = 'block';
+            document.getElementById('wechat-qr').style.display = 'none';
+        }
+        
+        function showQQGroup() {
+            document.getElementById('qq-group').style.display = 'block';
+            alert('请加QQ群：618638217');
+        }
+    </script>
+</body>
+</html>
