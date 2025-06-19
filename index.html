@@ -1,2 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JM最新版购买</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            margin: 15px 0;
+        }
+        .payment-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        .payment-option {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            max-width: 250px;
+        }
+        .payment-img {
+            max-width: 200px;
+            margin: 15px auto;
+            display: none;
+        }
+        .btn {
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px 5px;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .btn-pay {
+            background-color: #2196F3;
+        }
+        .btn-pay:hover {
+            background-color: #0b7dda;
+        }
+        .btn-action {
+            background-color: #f44336;
+        }
+        .btn-action:hover {
+            background-color: #d32f2f;
+        }
+        .btn-resource {
+            background-color: #4CAF50;
+        }
+        .btn-resource:hover {
+            background-color: #45a049;
+        }
+        .info-box {
+            display: none;
+            font-size: 18px;
+            margin: 25px auto;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 90%;
+            line-height: 1.6;
+            border: 2px solid;
+        }
+        .solution-text {
+            color: #ff0000;
+            border-color: #ff0000;
+            background-color: #fff0f0;
+        }
+        .custom-text {
+            color: #333;
+            border-color: #4CAF50;
+            background-color: #f0fff4;
+        }
+        .resource-panel {
+            display: none;
+            margin: 15px auto;
+            max-width: 500px;
+            text-align: center;
+        }
+        .sub-btn {
+            background-color: #9c27b0;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .sub-btn:hover {
+            background-color: #7b1fa2;
+            transform: translateY(-2px);
+        }
+        .custom-content {
+            display: none;
+            padding: 20px;
+            margin: 15px auto;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            max-width: 90%;
+        }
+    </style>
+</head>
+<body>
+    <h1>JM最新版8块</h1>
+    <p>付款时备注微信号名字</p>
+    <p>加QQ群1042353516领取</p>
+    <p>申请的时候备注1自己的微信支付号名字或者支付宝留言信息</p>
+    <p>要别的软件直接在申请的时候填写</p>
+    <p>放心，主播是诚信的，主播看到后会第一时间核对通过的</p>
 
-    <p>你好</p>
+    <div class="payment-container">
+        <div class="payment-option">
+            <p>微信扫码付款</p>
+            <img id="wechat-qr" src="https://sfile.chatglm.cn/chatglm4/f2b3b226-b386-4eab-99a3-74b8ed97267c.png?image_process=format,webp&time=0" class="payment-img" alt="微信付款码">
+            <button class="btn btn-pay" onclick="showPayment('wechat')">微信支付</button>
+        </div>
+        
+        <div class="payment-option">
+            <p>支付宝扫码付款</p>
+            <img id="alipay-qr" src="https://sfile.chatglm.cn/chatglm4/badfb22b-fa44-41c9-b15d-cc6f7ebcdf44.jpg?image_process=format,webp&time=0" class="payment-img" alt="支付宝付款码">
+            <button class="btn btn-pay" onclick="showPayment('alipay')">支付宝支付</button>
+        </div>
+    </div>
+
+    <div class="action-buttons">
+        <button class="btn btn-action" onclick="showQQGroup()">领取JM</button>
+        <button class="btn btn-action" onclick="showSolution()">解决JM问题</button>
+        <button class="btn btn-resource" onclick="toggleResource()">其他资源(都是破解版的)</button>
+    </div>
+
+    <div class="resource-panel" id="resourcePanel">
+        <button class="sub-btn" onclick="showContent(1)">动漫软件和网址</button>
+        <button class="sub-btn" onclick="showContent(2)">真人视频</button>
+        <button class="sub-btn" onclick="showContent(3)">翻墙加速器（梯子）和外网软件</button>
+    </div>
+
+    <div id="qq-group" class="info-box">
+        QQ群号：1042353516
+    </div>
+
+    <div id="solution-text" class="info-box solution-text">
+        挂梯子解决JM更新问题，我有两种梯子，一种每天免费一小时的9块，一种永久破解版的无限时长15块，私信快手主播拿进梯子的群号
+    </div>
+
+    <!-- 自定义内容区域 -->
+    <div id="content1" class="custom-content">
+        <h3>动漫网址和软件（都是破解免费的）</h3>
+        <p>AcFun（成人版） iwara（i站） 哔咔 pixiv 漫漫撸 漫漫蛙 e站（ehviewer） Hanime（H站，网址） javDB 二游总站 萌站 原神总站 崩铁总站</[>
+        </p> H游戏软件：游咔</p>
+        <p>动漫和游戏软件，一个8块，两个12块，下单时备注软件名</p>
+    </div>
+
+    <div id="content2" class="custom-content">
+        <h3>真人视频</h3>
+        <p>x站 香蕉视频 草莓视频 91真人 推特成人版 prohub 爱情岛 度娘成人版</p>
+        <p>真人视频一个10块，两个15块，下单时备注软件名</p>
+    </div>
+
+    <div id="content3" class="custom-content">
+        <h3>翻墙加速器（梯子）和外网软件</h3>
+        <p>一种每天免费一小时的梯子9块，一种永久破解版的无限时长的梯子15块</p>
+        <p>外网软件都是一个7块，两个10块，下单时备注软件名</p>
+    </div>
+
+    <script>
+        // 支付相关功能
+        function showPayment(type) {
+            document.getElementById('wechat-qr').style.display = type === 'wechat' ? 'block' : 'none';
+            document.getElementById('alipay-qr').style.display = type === 'alipay' ? 'block' : 'none';
+        }
+        
+        // 领取功能
+        function showQQGroup() {
+            document.getElementById('qq-group').style.display = 'block';
+            alert('请加QQ群：1042353516，申请的时候备注自己的微信号支付名字或者支付宝名字');
+        }
+
+        // 解决方案显示
+        function showSolution() {
+            const solutionDiv = document.getElementById('solution-text');
+            solutionDiv.style.display = 'block';
+            solutionDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 资源面板功能
+        let resourceVisible = false;
+        function toggleResource() {
+            const panel = document.getElementById('resourcePanel');
+            resourceVisible = !resourceVisible;
+            panel.style.display = resourceVisible ? 'block' : 'none';
+            if(!resourceVisible) {
+                document.querySelectorAll('.custom-content').forEach(el => el.style.display = 'none');
+            }
+        }
+
+        // 内容显示功能
+        function showContent(num) {
+            document.querySelectorAll('.custom-content').forEach(el => el.style.display = 'none');
+            const content = document.getElementById('content' + num);
+            content.style.display = 'block';
+            content.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
